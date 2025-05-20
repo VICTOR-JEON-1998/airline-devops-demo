@@ -1,14 +1,23 @@
 # airline-devops-demo
 
 
-## 📅 2025-05-20 - AWS IAM Setup & CLI Configuration
+## 📅 2025-05-20 – AWS CLI Setup & IAM Configuration
 
-✅ Created IAM user `devops-ft-user` with `AdministratorAccess` policy  
-✅ Enabled programmatic access and generated Access Key  
-✅ Configured AWS CLI with `aws configure`  
-✅ Region: `ap-northeast-2`, Output: `json`  
-✅ Confirmed `t2.micro` will be used to stay within Free Tier limits
+### ✅ Tasks Completed
+- Created IAM user `devops-ft-user` via AWS IAM Console
+- Enabled programmatic access and granted `AdministratorAccess`
+- Generated **Access Key** and **Secret Key** for CLI access
+- Executed `aws configure`:
+  - Region: `ap-northeast-2` (Seoul)
+  - Output format: `json`
+- Verified CLI connection by running: `aws sts get-caller-identity`
 
-🎯 Notes:
-- IAM Identity Center users are **not usable** for CLI/Terraform
-- Must use standard IAM user with Access Key
+### 🔐 Security Note
+- IAM user created with `AdministratorAccess` for initial testing only
+- Will reduce permissions later to follow **least privilege principle**
+
+### 🧭 Next Step
+- Start writing `main.tf` to provision:
+  - EC2 (t2.micro)
+  - ECR repository
+  - Security Group (ports 22, 80, 443)
