@@ -21,3 +21,52 @@
   - EC2 (t2.micro)
   - ECR repository
   - Security Group (ports 22, 80, 443)
+
+
+# 📅 2025-05-22 Airline DevOps Project Progress Log
+
+## ✅ Today's Goal
+- Organize initial Terraform project structure
+- Prepare AWS resources (ECR, EC2, Security Group)
+- Ensure all configurations stay within the free tier
+
+---
+
+## 📁 Project Directory Structure
+
+```
+airline-devops-demo/
+└── terraform/
+    ├── main.tf
+    ├── variables.tf
+    ├── outputs.tf
+```
+
+---
+
+## 🛠️ Work Details
+
+### 1. Code Separation & Security Group Enhancement
+- Split Terraform configuration into `main.tf`, `variables.tf`, and `outputs.tf`
+- EC2 instance configured with `t2.micro` (free tier)
+- SSH access restricted to `180.64.226.122/32` (your public IP)
+- HTTP/HTTPS ports open to the public
+
+### 2. Terraform Initialization
+- Ran `terraform init` to download AWS provider
+- `.terraform.lock.hcl` generated for provider version lock-in
+
+---
+
+## ⚠️ Notes
+- `terraform apply` has not been executed yet
+- EC2 key pair is passed via the `key_pair_name` variable
+- Next step involves automating Docker setup using `user_data`
+
+---
+
+## ⏭️ Next Steps
+- Execute `terraform apply` to create infrastructure
+- Add `user_data` script to install Docker on EC2 automatically
+- Dockerize Node.js app and push to ECR
+- Pull image and run the app on EC2 instance
